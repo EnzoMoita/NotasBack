@@ -11,7 +11,7 @@ class UsersController {
     const checkUserExist = await database.get("SELECT * FROM users WHERE email = (?)", [email])
     
     if(checkUserExist){
-       throw new AppError("Este e-mail já está em use.");
+       throw new AppError("Este e-mail já está em uso.");
 
     }
 
