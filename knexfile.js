@@ -1,22 +1,16 @@
-const path = require("path");
-
-
-
+const path = require('path');
 
 module.exports = {
-
   development: {
-    client: 'sqlite3',
+    client: 'pg',  // Mudar o cliente para PostgreSQL
     connection: {
-      filename: path.resolve(__dirname, "src", "database", "database.db")
+      host: 'localhost',
+      user: 'postgres',
+      password: 'Gigante1974!',
+      database: 'notasdb'
     },
-    pool:{
-      afterCreate: (conn, cb) => conn.run("PRAGMA foreign_keys = ON", cb)
-    },
-
     migrations: {
-      directory: path.resolve(__dirname, "src", "database", "knex", "migrations")
-    },
-    useNullAsDefault: true
-  },
+      directory: path.resolve(__dirname, 'src', 'database', 'knex', 'migrations')
+    }
+  }
 };
