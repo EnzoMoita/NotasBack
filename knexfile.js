@@ -1,14 +1,10 @@
 const path = require('path');
+require('dotenv').config();
 
 module.exports = {
   development: {
-    client: 'pg',  // Mudar o cliente para PostgreSQL
-    connection: {
-      host: 'localhost',
-      user: 'postgres',
-      password: 'Gigante1974!',
-      database: 'notasdb'
-    },
+    client: 'pg',
+    connection: process.env.DATABASE_URL,  // Usando a URL de conexão
     migrations: {
       directory: path.resolve(__dirname, 'src', 'database', 'knex', 'migrations')
     }
